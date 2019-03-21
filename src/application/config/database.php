@@ -48,11 +48,20 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'akademen';
-$db['default']['dbdriver'] = 'mysql';
+
+if (getenv('ENV') == "production") {
+ $url = getenv('JAWSDB_URL');
+} else {
+ $url = getenv('DB_URL');
+}
+
+$dbparts = parse_url($url);
+
+$db['default']['hostname'] = $dbparts['host'];;
+$db['default']['username'] = $dbparts['user'];
+$db['default']['password'] = $dbparts['pass'];
+$db['default']['database'] = ltrim($dbparts['path'],'/');
+$db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;

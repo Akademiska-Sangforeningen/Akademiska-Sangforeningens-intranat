@@ -3,6 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -38,7 +39,7 @@ if (defined('ENVIRONMENT'))
 		case 'development':
 			error_reporting(E_ALL);
 		break;
-	
+
 		case 'testing':
 		case 'production':
 			error_reporting(0);
@@ -49,6 +50,8 @@ if (defined('ENVIRONMENT'))
 	}
 }
 
+
+
 /*
  *---------------------------------------------------------------
  * SYSTEM FOLDER NAME
@@ -58,9 +61,9 @@ if (defined('ENVIRONMENT'))
  * Include the path if the folder is not in the same  directory
  * as this file.
  *
- */	
-	// $system_path = 'system';
-	$system_path = '/home/akademiska/domains/intra.akademiskasangforeningen.fi/public_html/system';
+ */
+	$system_path = 'system';
+	// $system_path = '/home/akademiska/domains/intra.akademiskasangforeningen.fi/public_html/system';
 
 /*
  *---------------------------------------------------------------
@@ -76,8 +79,8 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	// $application_folder = 'application';
-	$application_folder = '/home/akademiska/domains/intra.akademiskasangforeningen.fi/public_html/application';
+	$application_folder = 'application';
+	// $application_folder = '/home/akademiska/domains/intra.akademiskasangforeningen.fi/public_html/application';
 
 /*
  * --------------------------------------------------------------------

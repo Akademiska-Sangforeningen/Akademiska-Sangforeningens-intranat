@@ -6,12 +6,11 @@
 !*/cache/index.html
 !*/cache/.htaccess
 
-src/application/config/*
-
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
+src/application/logs/log*
 
 #codeigniter 3
 application/logs/*
@@ -24,3 +23,4 @@ application/logs/*
 
 # End of https://www.gitignore.io/api/codeigniter
 
+/db/

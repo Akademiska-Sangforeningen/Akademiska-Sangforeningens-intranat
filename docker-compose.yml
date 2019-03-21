@@ -1,0 +1,27 @@
+# docker-compose.yml
+version: '2.2'
+services:
+  db:
+    image: mysql:5.6
+    volumes:
+      - ./db/:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=akademen
+      - MYSQL_DATABASE=akademiska_intra
+    ports:
+      - 3306:3306
+
+  web:
+    image: 1and1internet/ubuntu-16-apache-php-5.6
+    ports:
+      - 80:8080
+      - 443:8080
+    volumes:
+      - ./src/:/var/www/html
+    links:
+      - db
+    user: ${CURRENT_UID}
+    environment:
+     - DB_URL=mysql://root:akademen@db:3306/akademiska_intra
+     - ENV=development
+     - HOSTNAME=http://localhost

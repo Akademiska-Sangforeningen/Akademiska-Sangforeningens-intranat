@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= getenv('HOSTNAME');;
 
 /*
 |--------------------------------------------------------------------------
@@ -180,7 +180,11 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+if (getenv('ENV') == "development") {
+ $config['log_threshold'] = 1;
+} else {
+ $config['log_threshold'] = 0;
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -268,7 +272,11 @@ $config['sess_time_to_update']	= 300;
 $config['cookie_prefix']	= "";
 $config['cookie_domain']	= "";
 $config['cookie_path']		= "/";
-$config['cookie_secure']	= TRUE;
+if (getenv('FORCE_SSL') == "true") {
+ $config['cookie_secure']	= TRUE;
+} else {
+ $config['cookie_secure']	= FALSE;
+}
 
 /*
 |--------------------------------------------------------------------------
