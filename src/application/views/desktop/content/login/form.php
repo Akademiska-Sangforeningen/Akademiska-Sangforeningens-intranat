@@ -15,11 +15,18 @@
 		<br/>
 		<input type="password" size="20" id="<?php echo DB_TABLE_PERSON . "_" . DB_PERSON_PASSWORD; ?>" name="<?php echo DB_TABLE_PERSON . "_" . DB_PERSON_PASSWORD; ?>" class="required ui-corner-all" />
 		<br/>
-		<input type="submit" value="<?php echo lang(LANG_KEY_BUTTON_LOG_IN); ?>" id="form_login_submit_button" class="button ui-corner-all" />
+		<input type="submit"
+			value="<?php echo lang(LANG_KEY_BUTTON_LOG_IN); ?>"
+			id="form_login_submit_button" class="button ui-corner-all"
+		/>
 	</form>
 
+		<?php if (getenv('MAINTENANCE') == "true") {
+			echo "<h1 style='color:red;'>Underhåll pågår, var god vänta</h1>";
+		} ?>
+
 	<script>
-		var executeOnStart = function ($) {			
+		var executeOnStart = function ($) {
 			//Validate the form already on client side
 			$("#form_login").validate({
 				onkeyup: false,
@@ -28,8 +35,8 @@
 						.button({ disabled: true })
 						.val('<?php echo lang(LANG_KEY_BUTTON_LOGGING_IN); ?>');
 					form.submit();
-				}		
-			});		
+				}
+			});
 		};
 	</script>
 </div>

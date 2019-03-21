@@ -25,3 +25,5 @@ services:
      - DB_URL=mysql://root:akademen@db:3306/akademiska_intra
      - ENV=development
      - HOSTNAME=http://localhost
+     - MAINTENANCE=true
+     - ALLOWED_LOGIN=rasmusjarnstrom@gmail.com

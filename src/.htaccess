@@ -2,7 +2,7 @@ RewriteEngine On
 
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteCond %{ENV:FORCE_SSL} true
-RewriteRule ^(.*)$ https://akademen-intra.herokuapp.com/$1 [R,L]
+RewriteRule ^(.*)$ %{ENV:HOSTNAME}/$1 [R,L]
 
 RewriteCond $1 !^(index\.php|images|wiki|css|js|favicon.ico|robots\.txt)
 RewriteRule ^(.*)$ index.php?/$1 [L]
